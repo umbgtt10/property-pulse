@@ -1,5 +1,5 @@
-import { FaExclamationTriangle }  from 'react-icons/fa'
-import Link  from 'next/link'
+import { FaExclamationTriangle } from "react-icons/fa";
+import Link from "next/link";
 
 const NotFoundPage = () => {
   return (
@@ -16,7 +16,8 @@ const NotFoundPage = () => {
             </p>
             <Link
               href=""
-              className="bg-blue-700 hover:bg-blue-800 text-white font-bold py-4 px-6 rounded">
+              className="bg-blue-700 hover:bg-blue-800 text-white font-bold py-4 px-6 rounded"
+            >
               Go Home
             </Link>
           </div>
@@ -24,7 +25,7 @@ const NotFoundPage = () => {
       </div>
       <div className="flex-grow"></div>
     </section>
-  )
-}
+  );
+};
 
-export default NotFoundPage
+export default NotFoundPage;

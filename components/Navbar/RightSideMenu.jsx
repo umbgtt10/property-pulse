@@ -1,13 +1,8 @@
-import LoggedOut from './RightSideMenu/LoggedOut'
-import LoggedIn from './RightSideMenu/LoggedIn'
+import LoggedOut from "./RightSideMenu/LoggedOut";
+import LoggedIn from "./RightSideMenu/LoggedIn";
 
-const RightSideMenu = ({isLoggedIn}) => {
+const RightSideMenu = ({ isLoggedIn }) => {
+  return <>{isLoggedIn ? <LoggedIn /> : <LoggedOut />}</>;
+};
 
-  return (
-     <>
-       { isLoggedIn ? (<LoggedIn />) : (<LoggedOut />)}
-     </>          
-  )
-}
-
-export default RightSideMenu
+export default RightSideMenu;
