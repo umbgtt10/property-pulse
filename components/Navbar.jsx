@@ -1,10 +1,10 @@
 'use client'
 import { useState } from 'react'
 
-import MobileMenu from '@/components/MobileMenu'
-import MainMenu from './MainMenu'
-import MobileMenuButton from './MobileMenuButton'
-import RightSideMenu from './RightSideMenu'
+import MobileMenu from '@/components/Navbar/MobileMenu'
+import MainMenu from '@/components/Navbar/MainMenu'
+import MobileMenuButton from '@/components/Navbar/MobileMenuButton'
+import RightSideMenu from '@/components/Navbar/RightSideMenu'
 
 const Navbar = () => {
 
