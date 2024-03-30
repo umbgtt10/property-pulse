@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import {
   FaBed,
   FaBath,
@@ -7,6 +6,7 @@ import {
   FaMoneyBill,
   FaMapMarker,
 } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const PropertyCard = ({ property }) => {
   const getRateDisplay = (property) => {
@@ -19,6 +19,7 @@ const PropertyCard = ({ property }) => {
     } else if (rates.nightly) {
       return `${rates.nightly.toLocaleString()}/night`;
     }
+    toast.error("Unknown rate type:", rates);
   };
 
   return (

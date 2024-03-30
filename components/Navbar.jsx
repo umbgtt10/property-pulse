@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
 
-import MobileMenu from "@/components/Navbar/MobileMenu";
-import MainMenu from "@/components/Navbar/MainMenu";
-import MobileMenuButton from "@/components/Navbar/MobileMenuButton";
-import RightSideMenu from "@/components/Navbar/RightSideMenu";
+import MobileMenu from "./Navbar/MobileMenu";
+import MainMenu from "./Navbar/MainMenu";
+import MobileMenuButton from "./Navbar/MobileMenuButton";
+import RightSideMenu from "./Navbar/RightSideMenu";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
