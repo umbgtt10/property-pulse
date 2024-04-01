@@ -23,4 +23,27 @@ async function fetchProperties() {
     }
   }
 
-  export { fetchProperties };
+  async function fetchProperty(id) {
+    try {
+
+      if (!apiDomain) {
+         return null
+      }
+ 
+      const res = await fetch(
+        `${apiDomain}/properties/${id}`,
+        { cache: "no-store" }
+      );
+  
+      if (!res.ok) {
+        throw new Error("Failed to fetch data");
+      }
+  
+      return res.json();
+    } catch (error) {
+      console.log(error);
+      return null
+    }
+  }
+
+  export { fetchProperties, fetchProperty };
