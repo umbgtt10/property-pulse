@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
+
 import { fetchProperty } from "@/utils/requests";
 import Property from "@/components/Property/Property";
 import Spinner from "@/components/Spinner";
