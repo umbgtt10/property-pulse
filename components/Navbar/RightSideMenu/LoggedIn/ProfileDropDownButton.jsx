@@ -1,7 +1,9 @@
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import profileDefault from "@/assets/images/profile.png";
 
 const ProfileDropDownButton = ({ setIsProfileMenuOpen, isProfileMenuOpen }) => {
+  const { data: session } = useSession();
   return (
     <div>
       <button
@@ -14,7 +16,13 @@ const ProfileDropDownButton = ({ setIsProfileMenuOpen, isProfileMenuOpen }) => {
       >
         <span className="absolute -inset-1.5"></span>
         <span className="sr-only">Open user menu</span>
-        <Image className="h-8 w-8 rounded-full" src={profileDefault} alt="" />
+        <Image
+          className="h-8 w-8 rounded-full"
+          src={session?.user?.image || profileDefault}
+          alt=""
+          width={40}
+          height={40}
+        />
       </button>
     </div>
   );
