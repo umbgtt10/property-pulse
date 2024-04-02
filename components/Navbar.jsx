@@ -8,7 +8,6 @@ import RightSideMenu from "./Navbar/RightSideMenu";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <nav className="bg-blue-700 border-b border-blue-500">
@@ -18,12 +17,12 @@ const Navbar = () => {
             setIsMobileMenuOpen={setIsMobileMenuOpen}
             isMobileMenuOpen={isMobileMenuOpen}
           />
-          <MainMenu isLoggedIn={isLoggedIn} />
-          <RightSideMenu isLoggedIn={isLoggedIn} />
+          <MainMenu />
+          <RightSideMenu />
         </div>
       </div>
 
-      <MobileMenu isMobileMenuOpen={isMobileMenuOpen} isLoggedIn={isLoggedIn} />
+      <MobileMenu isMobileMenuOpen={isMobileMenuOpen} />
     </nav>
   );
 };

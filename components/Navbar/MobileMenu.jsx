@@ -1,8 +1,22 @@
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { signIn, useSession, getProviders } from "next-auth/react";
 import Link from "next/link";
 
-const MobileMenu = ({ isMobileMenuOpen, isLoggedIn }) => {
+const MobileMenu = ({ isMobileMenuOpen }) => {
+  const { data: session } = useSession();
   const pathname = usePathname();
+
+  const [providers, setProviders] = useState(null);
+
+  useEffect(() => {
+    const setAuthProviders = async () => {
+      const res = await getProviders();
+      setProviders(res);
+    };
+
+    setAuthProviders();
+  }, []);
 
   return (
     <div className={isMobileMenuOpen ? "" : "hidden"} id="mobile-menu">
@@ -23,7 +37,7 @@ const MobileMenu = ({ isMobileMenuOpen, isLoggedIn }) => {
         >
           Properties
         </Link>
-        {isLoggedIn && (
+        {session && (
           <Link
             href="/properties/add"
             className={`${
@@ -33,11 +47,17 @@ const MobileMenu = ({ isMobileMenuOpen, isLoggedIn }) => {
             Add Property
           </Link>
         )}
-        {!isLoggedIn && (
-          <button className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 my-4">
-            <span>Login or Register</span>
-          </button>
-        )}
+        {!session &&
+          providers &&
+          Object.values(providers).map((provider, index) => (
+            <button
+              onClick={() => signIn(provider.id)}
+              key={index}
+              className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 my-4"
+            >
+              <span>Login or Register</span>
+            </button>
+          ))}
       </div>
     </div>
   );

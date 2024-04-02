@@ -1,10 +1,12 @@
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 import logo from "@/assets/images/logo-white.png";
 
-const MainMenu = ({ isLoggedIn }) => {
+const MainMenu = () => {
   const pathname = usePathname();
+  const { data: session } = useSession();
 
   return (
     <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
@@ -34,7 +36,7 @@ const MainMenu = ({ isLoggedIn }) => {
           >
             Properties
           </Link>
-          {isLoggedIn && (
+          {session && (
             <Link
               href="/properties/add"
               className={`${

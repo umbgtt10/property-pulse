@@ -4,6 +4,7 @@ import ProfileDropDown from "./LoggedIn/ProfileDropDown";
 import ProfileDropDownButton from "./LoggedIn/ProfileDropDownButton";
 
 const LoggedIn = () => {
+  const { data: session } = useSession();
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
 
   return (
