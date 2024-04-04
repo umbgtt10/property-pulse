@@ -14,7 +14,9 @@ const LoggedIn = () => {
           setIsProfileMenuOpen={setIsProfileMenuOpen}
           isProfileMenuOpen={isProfileMenuOpen}
         />
-        {isProfileMenuOpen && <ProfileDropDown />}
+        {isProfileMenuOpen && (
+          <ProfileDropDown setIsProfileMenuOpen={setIsProfileMenuOpen} />
+        )}
       </div>
     </div>
   );
