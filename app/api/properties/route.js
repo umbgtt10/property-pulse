@@ -13,14 +13,13 @@ export const GET = async (request) => {
     }
 }
 
+// POST /api/properties/addProperty
 export const POST = async (request) => {
     try {
         const formData = await request.formData();
         
         const amenities = formData.getAll('amenities')
         const images = formData.getAll('images').filter((image) => image.name !== '')
-
-        console.log(formData)
 
         const propertyData = {
             type: formData.get('type'),
@@ -48,8 +47,6 @@ export const POST = async (request) => {
             },
             images,
         }
-
-        console.log(propertyData) 
          
         return new Response(JSON.stringify({message: 'Success'}), {statsu:200})
     } catch (error) {
