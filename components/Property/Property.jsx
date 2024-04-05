@@ -4,6 +4,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import PropertyDetails from "./PropertyDetails";
 import PropertyHeaderImage from "./PropertyHeaderImage";
 import Sidebar from "./Sidebar";
+import PropertyImages from "../PropertyImages";
 
 const Property = ({ property }) => {
   return (
@@ -27,6 +28,7 @@ const Property = ({ property }) => {
           </div>
         </div>
       </section>
+      <PropertyImages images={property.images} />
     </>
   );
 };

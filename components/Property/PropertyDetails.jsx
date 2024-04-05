@@ -5,12 +5,14 @@ import Map from "./PropertyDetails/Map";
 
 const PropertyDetails = ({ property }) => {
   return (
-    <main>
-      <LocationAndRates property={property} />
-      <DescriptionAndDetails property={property} />
-      <Amenities property={property} />
-      <Map property={property} />
-    </main>
+    <>
+      <main>
+        <LocationAndRates property={property} />
+        <DescriptionAndDetails property={property} />
+        <Amenities property={property} />
+        <Map property={property} />
+      </main>
+    </>
   );
 };
 
